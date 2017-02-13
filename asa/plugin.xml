@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Perspective"
+            class="asa.Perspective"
+            id="asa.perspective">
+      </perspective>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="asa.handlers.Add"
+            id="asa.command.Add"
+            name="Add">
+      </command>
+      <command
+            defaultHandler="asa.handlers.Update"
+            id="asa.command.Update"
+            name="Update">
+      </command>
+      <command
+            defaultHandler="asa.handlers.Delete"
+            id="asa.command.Delete"
+            name="Delete">
+      </command>
+      <command
+            defaultHandler="asa.handlers.SaveXML"
+            id="asa.command.SaveXML"
+            name="Save XML">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="asa.command.Add">
+      </handler>
+      <handler
+            commandId="asa.command.Update">
+      </handler>
+      <handler
+            commandId="asa.command.SaveXML">
+      </handler>
+      <handler
+            commandId="asa.command.Delete">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <view
+               standalone="true"
+               minimized="false"
+               relative="org.eclipse.ui.editorss"
+               relationship="left"
+               id="asa.view">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               label="MenuFile">
+            <command
+                  commandId="asa.command.Add"
+                  label="Add Employee"
+                  style="push">
+            </command>
+            <command
+                  commandId="asa.command.Update"
+                  label="Update Employee"
+                  style="push">
+            </command>
+            <command
+                  commandId="asa.command.Delete"
+                  label="Delete Employee"
+                  style="push">
+            </command>
+            <command
+                  commandId="asa.command.SaveXML"
+                  label="Save XML"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            name="View"
+            class="asa.View"
+            id="asa.view">
+      </view>
+   </extension>
+
+</plugin>
